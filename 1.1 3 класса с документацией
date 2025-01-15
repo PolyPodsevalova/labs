@@ -1,0 +1,118 @@
+# TODO Написать 3 класса с документацией и аннотацией типов
+
+import doctest
+
+class Kettle:
+    def __init__(self, capacity: float, material: str):
+        """
+        :param capacity: Объем чайника в литрах (должен быть положительным).
+        :param material: Материал чайника (например, сталь, стекло, пластик).
+        """
+        if capacity <= 0:
+            raise ValueError("Объем чайника должен быть положительным.")
+        self.capacity = capacity
+        self.material = material
+
+    def boil_water(self) -> None:
+        """
+        Метод для кипячения воды.
+        :return: None
+        """
+        ...
+
+    def pour_water(self, amount: float) -> None:
+        """
+        Метод для наливания воды из чайника.
+
+        :param amount: Количество воды в литрах (должно быть положительным и не превышать объема).
+        :return: None
+
+        >>> kettle.pour_water(0.5)
+        """
+        ...
+
+    def clean(self) -> None:
+        """
+        Метод для очистки чайника.
+        :return: None
+        """
+        ...
+
+class Bridge:
+    def __init__(self, length: float, weight_limit: float):
+        """
+        :param length: Длина моста в метрах (должна быть положительной).
+        :param weight_limit: Максимальная нагрузка в тоннах (должна быть положительной).
+        """
+        if length <= 0:
+            raise ValueError("Длина моста должна быть положительной.")
+        if weight_limit <= 0:
+            raise ValueError("Максимальная нагрузка должна быть положительной.")
+        self.length = length
+        self.weight_limit = weight_limit
+
+    def check_safety(self, current_load: float) -> bool:
+        """
+        Проверка безопасности нагрузки на мост.
+
+        :param current_load: Текущая нагрузка на мост в тоннах.
+        :return: True, если нагрузка безопасна, иначе False.
+
+        >>> bridge.check_safety(15)
+        True
+        """
+        ...
+
+    def open_drawbridge(self) -> None:
+        """
+        Метод для поднятия разводного моста.
+        :return: None
+        """
+        ...
+
+    def close_drawbridge(self) -> None:
+        """
+        Метод для опускания разводного моста.
+        :return: None
+        """
+        ...
+
+class Scissors:
+    def __init__(self, blade_length: float, is_sharp: bool):
+        """
+        :param blade_length: Длина лезвий в сантиметрах (должна быть положительной).
+        :param is_sharp: Признак того, что ножницы острые.
+        """
+        if blade_length <= 0:
+            raise ValueError("Длина лезвий должна быть положительной.")
+        self.blade_length = blade_length
+        self.is_sharp = is_sharp
+
+    def cut(self, material: str) -> bool:
+        """
+        Метод для резки материала.
+
+        :param material: Тип материала для резки (например, бумага, ткань).
+        :return: True, если материал успешно разрезан, иначе False.
+
+        >>> scissors.cut("бумага")
+        True
+        """
+        ...
+
+    def sharpen(self) -> None:
+        """
+        Метод для заточки ножниц.
+        :return: None
+        """
+        ...
+
+    def lock(self) -> None:
+        """
+        Метод для блокировки ножниц (например, для безопасности).
+        :return: None
+        """
+        ...
+
+if __name__ == "__main__":
+    doctest.testmod()  # тестирование примеров, которые находятся в документации
